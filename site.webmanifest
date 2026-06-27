@@ -1,0 +1,22 @@
+{
+  "name": "Kiran Thirumalesh J. — Advocate & Legal Consultant",
+  "short_name": "Adv. Kiran",
+  "description": "Trusted legal counsel in Bengaluru — family, civil, consumer, property, cheque bounce and arbitration matters.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f3ec",
+  "theme_color": "#10362b",
+  "icons": [
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
