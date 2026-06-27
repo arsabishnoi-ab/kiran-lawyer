@@ -37,6 +37,23 @@ site.webmanifest      PWA / install metadata
 
 > The reviews in `js/reviews.js` are **sample placeholder content**. Replace them with genuine client testimonials before going live.
 
+## Adding photos (image slots)
+
+The design has built-in image slots that currently fall back to tasteful green gradients. Drop files with these exact names into `assets/images/` to fill them — no code change needed:
+
+| Slot | File to add |
+| --- | --- |
+| Hero portrait (right of headline) | `kiran-portrait.png` (transparent PNG works best) |
+| Family & Divorce card | `service-family.jpg` |
+| Consumer card | `service-consumer.jpg` |
+| Civil card | `service-civil.jpg` |
+| Property card | `service-property.jpg` |
+| Registration & Conveyancing card | `service-registration.jpg` |
+| Cheque Bounce card | `service-cheque.jpg` |
+| Arbitration card | `service-arbitration.jpg` |
+
+Recommended sizes: portrait ~900×1100px; service photos ~800×550px (landscape).
+
 ## Before launch (SEO checklist)
 
 1. Replace the domain `https://www.kiranadvocate.in/` everywhere with the real domain:
