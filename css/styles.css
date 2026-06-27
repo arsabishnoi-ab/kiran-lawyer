@@ -129,7 +129,11 @@ img { max-width: 100%; display: block; }
 .hero { position: relative; color: #fff; padding: clamp(80px, 14vh, 150px) 0 clamp(70px, 12vh, 120px); overflow: hidden; }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url("../assets/images/hero-court.jpg") center/cover no-repeat;
+  background-color: #1c1e1d;
+  background-position: center; background-size: cover; background-repeat: no-repeat;
+  background-image: url("../assets/images/hero-court.jpg");
+  background-image: -webkit-image-set(url("../assets/images/hero-court.webp") 1x);
+  background-image: image-set(url("../assets/images/hero-court.webp") type("image/webp"), url("../assets/images/hero-court.jpg") type("image/jpeg"));
   transform: scale(1.05);
 }
 .hero-overlay {
@@ -278,24 +282,26 @@ img { max-width: 100%; display: block; }
 /* ---------- Floating actions (labeled pills) ---------- */
 .floating-actions { position: fixed; right: 20px; bottom: 22px; z-index: 90; display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
 .fab {
-  display: inline-flex; align-items: center; gap: 9px; height: 50px; padding: 0 20px 0 17px;
+  position: relative; display: inline-flex; align-items: center; gap: 9px; height: 50px; padding: 0 20px 0 17px;
   border-radius: 30px; color: #fff; font-weight: 700; font-size: .92rem; white-space: nowrap;
   box-shadow: 0 8px 22px rgba(44, 48, 46, .22); transition: transform .2s ease, box-shadow .2s ease;
 }
-.fab svg { flex-shrink: 0; }
+.fab svg { flex-shrink: 0; position: relative; z-index: 1; }
+.fab span { position: relative; z-index: 1; }
 .fab:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(44, 48, 46, .28); }
-.fab-whatsapp { background: #25d366; animation: pulseGreen 2.6s ease-out infinite; }
-.fab-call { background: var(--gold); color: #fff; animation: pulseGold 2.6s ease-out infinite .4s; }
-
-@keyframes pulseGreen {
-  0% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 0 rgba(37, 211, 102, .45); }
-  70% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 14px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 0 rgba(37, 211, 102, 0); }
+/* Pulsing halo (transform/opacity only — GPU composited, no repaint) */
+.fab::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: inherit;
+  z-index: 0; will-change: transform, opacity; animation: fabHalo 2.6s ease-out infinite;
 }
-@keyframes pulseGold {
-  0% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 0 rgba(184, 138, 69, .5); }
-  70% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 14px rgba(184, 138, 69, 0); }
-  100% { box-shadow: 0 8px 22px rgba(44,48,46,.22), 0 0 0 0 rgba(184, 138, 69, 0); }
+.fab-whatsapp { background: #25d366; }
+.fab-call { background: var(--gold); color: #fff; }
+.fab-call::before { animation-delay: .5s; }
+
+@keyframes fabHalo {
+  0% { transform: scale(1); opacity: .45; }
+  70% { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
 }
 
 /* ---------- Mobile sticky CTA bar ---------- */
@@ -370,5 +376,5 @@ img { max-width: 100%; display: block; }
   * { scroll-behavior: auto !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
   .btn:hover, .card:hover, .fab:hover { transform: none; }
-  .fab-whatsapp, .fab-call { animation: none; }
+  .fab::before { animation: none; opacity: 0; }
 }

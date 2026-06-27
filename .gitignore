@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Original (uncompressed) source images — optimized versions are committed
+assets/images/_raw/
+
 # OS / editor
 .DS_Store
 Thumbs.db

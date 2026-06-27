@@ -1,0 +1,24 @@
+{
+  "name": "kiran-lawyer",
+  "version": "1.0.0",
+  "description": "A fast, SEO-optimized, mobile-friendly one-page website for Advocate Kiran Thirumalesh J. (Bengaluru). Built with plain HTML, CSS and JavaScript — no build step, no dependencies.",
+  "scripts": {
+    "start": "http-server -p 8123 -c-1",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsabishnoi-ab/kiran-lawyer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arsabishnoi-ab/kiran-lawyer/issues"
+  },
+  "homepage": "https://github.com/arsabishnoi-ab/kiran-lawyer#readme",
+  "dependencies": {
+    "sharp": "^0.35.2"
+  }
+}
